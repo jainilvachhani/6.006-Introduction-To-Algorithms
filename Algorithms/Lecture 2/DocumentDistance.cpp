@@ -2,16 +2,15 @@
 #include <string.h>
 using namespace std;
 
-int DocumentDistance(char a[], char b[])
+int DocumentDistance(int a[], int b[],int n)
 {
-	int length=0;
-	int i;
-	for(i=0;i<strlen(a);i++)
+	int i,sum=0;
+	for(i=0;i<26;i++)
 	{
-		length += (a[i] - 'a' + 1) * (b[i] - 'a' + 1);
+		sum += a[i]*b[i];
 	}
-	length = length/(strlen(a)*strlen(a));
-	return length;
+	sum = sum/(n);
+	return sum;
 }
 
 int main() {
@@ -20,6 +19,21 @@ int main() {
 	char a[n],b[n];
 	scanf("%s",a);
 	scanf("%s",b);
-	printf("%d",DocumentDistance(a,b));
+	int s1[26],s2[26];
+	int i;
+	for(i=0;i<26;i++)
+	{
+		s1[i] = 0;
+		s2[i] = 0;
+	}
+	for(i=0;i<strlen(a);i++)
+	{
+		s1[a[i]-'a']++;
+	}
+	for(i=0;i<strlen(b);i++)
+	{
+		s2[b[i]-'a']++;
+	}
+	printf("%d",DocumentDistance(s1,s2,n));
 	return 0;
 }
