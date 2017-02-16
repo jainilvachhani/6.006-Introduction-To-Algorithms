@@ -4,7 +4,7 @@ using namespace std;
 
 int Rank(int a[], int rank[], int pos, int time)
 {
-	if(a[pos] >= time)
+	if(a[pos] == time)
 	{
 		int temp = 2*pos + 1;
 		return 1 + rank[temp];
@@ -13,6 +13,10 @@ int Rank(int a[], int rank[], int pos, int time)
 	{
 		int temp = 2*pos + 1;
 		return rank[temp] + 1 + Rank(a,rank,temp+1,time); 
+	}
+	else
+	{
+		return 0;
 	}
 }
 
