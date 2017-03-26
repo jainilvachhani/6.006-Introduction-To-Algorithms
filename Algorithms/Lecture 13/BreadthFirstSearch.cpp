@@ -16,7 +16,7 @@ int bfs(vector <list<int>> adjlist, int target, int source, int visited[], int d
 		bfsq.pop();
 		for(int v : adjlist[u])
 		{
-			if(visited[v]==-1)
+			if(visited[v]==0)
 			{
 				visited[v] = 1;
 				distance[v] = distance[u] + 1;
